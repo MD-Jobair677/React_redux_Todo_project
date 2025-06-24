@@ -1,5 +1,7 @@
 import Menu from "./Menu";
 import { useGetTodoListQuery } from "../core/data/redux/features/todo/getTodoList";
+import { Link } from 'react-router-dom';
+
 
 const TodoList = () => {
   const { data, isLoading, isError } = useGetTodoListQuery();
@@ -31,8 +33,10 @@ const TodoList = () => {
               <td>{todo.name}</td>
               <td>{todo.description}</td>
               <td>{todo.status === 0 ? "Pending" : "Completed"}</td>
-              <td>Edite</td>
-              <td>Delete</td>
+              <td> <Link to={`/update/todo/${todo.id}`}>
+                <button>Edit Todo</button>
+              </Link></td>
+              <td><button>Delete</button></td>
             </tr>
           ))}
         </tbody>

@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="add/todo" element={<AddTodoForm />} />
           <Route path="/todo/list" element={<TodoList />} />
-          <Route path="/update/todo" element={<UpdateTodo />} />
+          <Route path="/update/todo/:id" element={<UpdateTodo />} />
           <Route path="/counter/app" element={<Counter />} />
 
         </Routes>
