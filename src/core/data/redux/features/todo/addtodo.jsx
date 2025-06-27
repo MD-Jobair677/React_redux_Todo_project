@@ -6,12 +6,12 @@ import { baseApi } from "../../baseApi";
 export const addTodoApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         addTodo: builder.mutation({
-            query: (todo) => ({
-                url: 'store/todo/',
+            query: (submitData) => ({
+                url: 'store/todo',
                 method: 'POST',
-                body: todo,
+                body: submitData,
             }),
-            invalidatesTags: ['Todo'],
+            invalidatesTags: ['storeTodo'],
         }),
     }),
 });

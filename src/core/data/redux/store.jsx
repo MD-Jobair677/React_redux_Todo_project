@@ -6,6 +6,7 @@ import { baseApi } from './baseApi';
 const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
+    tagTypes:['getTodo'],
     
     // themeSetting: themeSettingSlice,
     // sidebarSlice: sidebarSlice,

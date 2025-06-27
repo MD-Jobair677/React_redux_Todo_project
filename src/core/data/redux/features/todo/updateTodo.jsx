@@ -4,10 +4,10 @@ import { baseApi } from "../../baseApi";
 export const updateTodoApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         updateTodo: builder.mutation({
-            query: ({ id, todo }) => ({
+            query: ({ id, submitData }) => ({
                 url: `/update/todo/${id}`,
-                method: 'PUT',
-                body: todo,
+                method: 'POST',
+                body: submitData,
             }),
             invalidatesTags: ['Todo'],
         }),
