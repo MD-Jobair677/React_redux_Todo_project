@@ -20,6 +20,12 @@ const Menu = () => {
         <li>
             <Link to="/counter/app">Counter app </Link>
         </li>
+        <li>
+            <Link to="/register">Register </Link>
+        </li>
+        <li>
+            <Link to="/login">Login </Link>
+        </li>
       </ul>
     </div>
   );
