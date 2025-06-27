@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import {useLoginUserMutation} from "../core/data/redux/Register"
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../core/data/redux/authSlice";
+
 // import { useEffect } from "react";
 
 const Login = () => {
-
+ const dispatch = useDispatch();
 const navigate = useNavigate()
     const [loginData, {isLoading, isError, isSuccess }] = useLoginUserMutation();
 
@@ -42,11 +45,16 @@ const submitFromhundeler = async(e) =>{
    
  if (response.status === true) {
       
-        localStorage.setItem("token", response.token);
-        localStorage.setItem("user", JSON.stringify(response.userData));
-        localStorage.setItem("userId", response.userData.id);
-        console.log(response.token);
-        navigate("/todo/list");
+           // Redux store & localStorage-এ token এবং user সেভ করো
+        dispatch(
+          setCredentials({
+            token: response.token,
+            user: response.userData,
+          })
+        );
+
+        // লগইন সাকসেস হলে রিডিরেক্ট করো
+        navigate("/todo/list");;
        
       }
 
@@ -56,14 +64,7 @@ const submitFromhundeler = async(e) =>{
     console.log('erorr')
   }
 
-
-
-
 }
-
-
-
-
 
     return (
         <div className="login">

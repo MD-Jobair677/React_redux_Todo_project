@@ -1,13 +1,13 @@
 
-
+import authReducer from './authSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import { baseApi } from './baseApi';
 
 const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
-    tagTypes:['getTodo'],
-    
+
+    auth: authReducer,
     // themeSetting: themeSettingSlice,
     // sidebarSlice: sidebarSlice,
   },
